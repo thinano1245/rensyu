@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="destyle.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script type="text/javascript">
+    function gate(){
+       // ▼ユーザの入力を求める
+       var UserInput = prompt("パスワードを入力して下さい:","");
+       // ▼入力内容をチェック
+       if( /\W+/g.test(UserInput) ) {
+          // ▼半角英数字以外の文字が存在したらエラー
+          alert("半角英数字のみを入力して下さい。");
+       }
+       // ▼キャンセルをチェック
+       else if( UserInput != null ) {
+          // ▼入力内容からファイル名を生成して移動
+          location.href = UserInput + ".html";
+       }
+    }
+    </script>
+  <title>portfolio部</title>
+</head>
+<body>
+  <header>
+    <div class="flex between center">
+      <div class="titleanimation header-left">
+        <ul class="flex center padding">
+          <li class="header-left-title"><a href="index.html"><h1>portfolio部</h1></a></li>
+        </ul>
+      </div>
+
+      <nav id="header-nav" class="header-nav">
+        <ul class="flex header-nav-list">
+          <li class="header-nav-section"><a href="index.html">ホーム</a></li>
+          <li class="header-nav-section"><a href="home.html">部活概要</a></li>
+          <li class="header-nav-section"><a href="plan.html">スケジュール</a></li>
+          <li class="header-nav-section"><a href="qa.html">よくある質問</a></li>
+          <li>  <input type="button" value="他の情報を見る" onclick="gate();"></li>
+        </ul>
+      </nav>
+    </div>
+
+    <a class="menubutton" id="menubutton">
+      <div></div>
+      <div></div>
+      <div></div>
+    </a>
+  </header>
+
+  <div class="main-section">
+    <h2 class="main-title">想作から創作へ</h2>
+    <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+      <br>
+      ここに文章が入ります。ここに文章が入ります。
+    </p>
+  </div>
+  <img class="main-img" src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="100%">
+  <main class="main">
+    <section>
+      <h3 class="section-title">Plan<span>年間スケジュール</span></h3>
+    </section>
+    <div class="plan flex between">
+      <div class="plan-list">
+        <table class="plan-a">
+            <tr>
+              <td class="month">
+                3月
+                <br>
+                <br>
+                <br>
+                4月
+                <br>
+                <br>
+                <br>
+                5月
+                <br>
+                <br>
+                <br>
+                6月
+                <br>
+                <br>
+                <br>
+                7月
+                <br>
+                <br>
+                <br>
+                8月
+                <br>
+                <br>
+                <br>
+                9月
+                <br>
+                <br>
+                <br>
+                10月
+                <br>
+                <br>
+                <br>
+                11月
+                <br>
+                <br>
+                <br>
+                12月
+                <br>
+                <br>
+                <br>
+                1月
+                <br>
+                <br>
+                <br>
+                2月
+                <br>
+                <br>
+                <br>
+              </td>
+    
+              <td>
+                <table>
+                  <tr class="spring">
+                    <td class="season">
+                      <span class="season-title">春</span>
+                      <br>
+                      <span>Spring</span>
+                    </td>
+                  </tr>
+                  <tr class="summer">
+                    <td class="season">
+                      <span class="season-title">夏</span>
+                      <br>
+                      <span>Summer</span>
+                    </td>
+                  </tr>
+                  <tr class="autumu">
+                    <td class="season">
+                      <span class="season-title">秋</span>
+                      <br>
+                      <span>Autumu</span>
+                    </td>
+                  </tr>
+                  <tr class="winter">
+                    <td class="season">
+                      <span class="season-title">冬</span>
+                      <br>
+                      <span>Winter</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="schedule">
+                <!-- 3月の予定 -->
+                <br>
+                <br>
+                卒業式<br>
+                <!-- 4月の予定 -->
+                入学式<br>
+                新入生説明会<br>
+                新入生歓迎会<br>
+                <!-- 5月の予定 -->
+                <br>
+                <br>
+                <br>
+                <!-- 6月の予定 -->
+                <br>
+                <br>
+                <br>
+                <!-- 7月の予定 -->
+                七夕<br>
+                <br>
+                夏休み<br>
+                <!-- 8月の予定 -->
+                <br>
+                <br>
+                <br>
+                <!-- 9月の予定 -->
+                <br>
+                <br>
+                <br>
+                <!-- 10月の予定 -->
+                <br>
+                <br>
+                大学祭<br>
+                <!-- 11月の予定 -->
+                <br>
+                <br>
+                <br>
+                <!-- 12月の予定 -->
+                <br>
+                <br>
+                クリスマス会<br>
+                <!-- 1月の予定 -->
+                冬休み<br>
+                <br>
+                <br>
+                <!-- 2月の予定 -->
+                <br>
+                <br>
+                春休み<br>
+              </td>
+            </tr>
+        </table>
+      </div>
+      <div class="plan-b">
+        <div class="plan-section">
+          <h4><a href="#">新入生説明会</a></h4>
+          <p>文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。</p>
+          <div class="plan-img">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+          </div>  
+        </div>
+        <div class="plan-section">
+          <h4><a href="#">七夕</a></h4>
+          <p>文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。</p>
+          <div class="plan-img">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+          </div>  
+        </div>
+        <div class="plan-section">
+          <h4><a href="#">大学祭</a></h4>
+          <p>文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。</p>
+          <div class="plan-img">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+          </div>  
+        </div>
+        <div class="plan-section">
+          <h4><a href="#">クリスマス会</a></h4>
+          <p>文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。</p>
+          <div class="plan-img">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="200px">
+          </div>  
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div>
+      <ul class="copyright">
+        <li class="copyright-title"><a href="index.html"><h4>portfolio部</h4></a></li>
+        <li><a href="index.html"><p>copyright@portfolio</p></a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

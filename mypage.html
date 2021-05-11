@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    var searchBox = '.search-box';
+    var searchItem = '.search-box input';
+    var listItem = '.cat_image';
+    var hideClass = 'is-hide';
+    
+    $(function() {
+      $(searchItem).on('change', function() {
+        search_filter();
+      });
+    });
+    
+    function search_filter() {
+      $(listItem).removeClass(hideClass);
+      for (var i = 0; i < $(searchBox).length; i++) {
+        var name = $(searchBox).eq(i).find('input').attr('name');
+        var searchData = selected_items(name);
+        if(searchData.length === 0 || searchData[0] === '') {
+          continue;
+        }
+        for (var j = 0; j < $(listItem).length; j++) {
+          var itemData = $(listItem).eq(j).data(name);
+          if(searchData.indexOf(itemData) === -1) {
+            $(listItem).eq(j).addClass(hideClass);
+          }
+        }
+      }
+    }
+    
+    function selected_items(name) {
+      var searchData = [];
+      $('input[name=' + name + ']:checked').each(function() {
+        searchData.push($(this).val());
+      });
+      return searchData;
+    }
+    </script>
+  <style>
+    .search-box_title{
+      font-weight: bold;
+    }
+    .search-box label {
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 10px;
+      line-height: 16px;
+    }
+    .search-box input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      margin: -2px 5px 0 0;
+      padding: 0;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+    .search-box input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: -2px 5px 0 0;
+      padding: 0;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+    .cat_image_all {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 680px;
+      margin: 3em auto 0;
+    }
+    .cat_image {
+      width: 48%;
+      max-width: 320px;
+      margin: 0 0 2em;
+    }
+    .cat_image.is-hide {
+      display: none;
+    }
+    .cat_image a {
+      display: block;
+      color: #444;
+    }
+    .cat_image a:hover {
+      text-decoration: underline;
+    }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+      <link rel="stylesheet" href="destyle.css">
+      <link rel="stylesheet" href="style.css">
+      <script src="script.js" defer></script>
+      <meta name="robots" content="noindex">
+  <title>fortpolio部</title>
+</head>
+<body>
+  <header>
+    <div class="flex between center">
+      <div class="titleanimation header-left">
+        <ul class="flex center padding">
+          <li class="header-left-title"><a href="index.html"><h1>portfolio部</h1></a></li>
+        </ul>
+      </div>
+
+      <nav id="header-nav" class="header-nav">
+        <ul class="flex header-nav-list">
+          <li class="header-nav-section"><a href="index.html">ホーム</a></li>
+          <li class="header-nav-section"><a href="home.html">部活概要</a></li>
+          <li class="header-nav-section"><a href="plan.html">スケジュール</a></li>
+          <li class="header-nav-section"><a href="qa.html">よくある質問</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <a class="menubutton" id="menubutton">
+      <div></div>
+      <div></div>
+      <div></div>
+    </a>
+  </header>
+
+  <main clas="main">
+    <div class="main-section">
+      <h2 class="main-title">想作から創作へ</h2>
+      <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+        <br>
+        ここに文章が入ります。ここに文章が入ります。
+      </p>
+    </div>
+    <img class="main-img" src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="100%">
+    <section>
+      <h3 class="section-title">Mypage<span>マイページ</span></h3>
+    </section>
+    
+      <div style="background:#fff; padding:10px; border:3px double #fc4a1a;">
+        <div class="search-box">
+              <span class="search-box_title">活動内容：</span>
+          <label><input type="radio" name="shop" value="">全て</label>
+          <label><input type="radio" name="shop" value="shop1">新入生説明会</label>
+          <label><input type="radio" name="shop" value="shop2">七夕</label>
+          <label><input type="radio" name="shop" value="shop3">大学祭</label>
+          <label><input type="radio" name="shop" value="shop4">クリスマス</label>
+        </div>
+        <div class="search-box">
+          <span class="search-box_title">表示内容：</span>
+          <label><input type="checkbox" name="category" value="category1">活動概要</label>
+          <label><input type="checkbox" name="category" value="category2">改善点</label>
+          <label><input type="checkbox" name="category" value="category3">写真</label>
+        </div>
+      </div>
+
+    <div class="mypage_list">
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop1" data-category="category1">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <div>
+              <p   class="page_title">新入生説明会の活動概要</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop1" data-category="category2">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">新入生説明会の改善点</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop1" data-category="category3">
+          <a href="">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="画像の説明" width="300">
+            <p class="page_title">新入生説明会の写真</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mypage_list">
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop2" data-category="category1">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">七夕の活動概要</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop2" data-category="category2">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">七夕の改善点</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop2" data-category="category3">
+          <a href="">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="画像の説明" width="300">
+            <p class="page_title">七夕の写真</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mypage_list">
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop3" data-category="category1">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">大学祭の改善点</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop3" data-category="category2">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">大学祭の改善点</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop3" data-category="category3">
+          <a href="">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="画像の説明" width="300">
+            <p class="page_title">大学祭の写真</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mypage_list">
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop4" data-category="category1">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">クリスマス会の活動概要</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop4" data-category="category2">
+          <a href="annie-spratt-OWq8w3BYMFY-unsplash.jpg" data-lightbox="group">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" width="300">
+            <p class="page_title">クリスマス会の改善点</p>
+          </a>
+        </div>
+      </div>
+    
+      <div class="cat_image_all">
+        <div class="cat_image" data-shop="shop4" data-category="category3">
+          <a href="">
+            <img src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="画像の説明" width="300">
+            <p class="page_title">クリスマス会の写真</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<footer class="footer">
+  <div>
+    <ul class="copyright">
+      <li class="copyright-title"><a href="index.html"><h4>portfolio部</h4></a></li>
+      <li><a href="index.html"><p>copyright@portfolio</p></a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

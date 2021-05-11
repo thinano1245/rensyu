@@ -1,0 +1,515 @@
+  
+@charset "utf-8";
+/* 共通のスタイル*/
+.flex {
+  display: flex;
+}
+.between {
+  justify-content: space-between;
+}
+.center {
+  align-items: center;
+}
+.main {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+.padding {
+  padding: 0;
+}
+.left {
+  text-align: left;
+}
+.ul {
+  list-style: none;
+}
+.button-section {
+  text-align: center;
+  margin: 0 auto;
+}
+.button {
+  position: relative;
+  display: inline-block;
+  padding: .5em 4em;
+  margin: 70px auto 0;
+  text-decoration: none;
+  transition: .3s;
+}
+.button::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  transform-origin: center center;
+  transform: scale(0, 1);
+  transition: transform .3s;
+}
+.button:hover::before {
+  transform: scale(1, 1);
+}
+@keyframes titleanimation {
+  0% {
+    letter-spacing: 0.3em;
+    opacity: 0;
+  }
+}
+.titleanimation {
+  white-space: nowrap;
+  animation: titleanimation 1.5s;
+}
+body {
+  font-family: serif;
+  background-color:white;
+  color:black;
+}
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+
+/* header start */
+header {
+  width: 100%;
+  padding: 50px;
+  margin: 10px auto;
+}
+.header-left {
+  text-align: center;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+.header-nav {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  font-size: 20px;
+}
+.header-nav.active {
+  opacity: 1;
+  visibility: visible;
+}
+.header-nav-list {
+  justify-content: space-around;
+}
+.header-nav-section {
+  padding: 0 20px;
+}
+.header-nav-section a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+.header-nav-section a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #333;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+.header-nav-section a:hover::after {
+  transform: scale(1, 1);
+}
+.menubutton {
+  height: 80px;
+  width: 80px;
+  background-color:gray;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+.menubutton div {
+  height: 1px;
+  width: 60%;
+  background-color:white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: 0.3s;
+}
+.header-nav ul {
+  padding: 60px 0;
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255,0.9);
+  z-index: 1;
+}
+.header-nav li {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.menubutton div:nth-of-type(1) {
+  transform: translate(-50%,-15px);
+}
+
+.menubutton div:nth-of-type(3) {
+  transform: translate(-50%,15px);
+}
+
+.menubutton.active div:nth-of-type(1) {
+  transform: rotate(45deg) translate(-50%,0px);
+  transform-origin: 0% 50%;
+}
+
+.menubutton.active div:nth-of-type(2) {
+  opacity: 0;
+  transform: translate(0%,-50%);
+}
+
+.menubutton.active div:nth-of-type(3) {
+  transform: rotate(-45deg) translate(-50%,0px);
+  transform-origin: 0% 50%;
+}
+/* header last */
+.main-section {
+  text-align: center;
+  margin: 0 auto;
+}
+.main-title {
+  font-weight: bold;
+  font-size: 50px;
+}
+.main-img {
+  margin: 50px 0;
+  height: 500px;
+  object-fit: cover; 
+}
+.main-contents {
+  margin: 0 auto;
+}
+.section-title {
+  font-size: 50px;
+  color: blue;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-title span{
+  font-size: 30px;
+  color:black;
+  display: block;
+  text-align: center;
+}
+.contents {
+  max-width: 1000px;
+  width: 95%;
+  margin: 0 auto;
+}
+.contents li {
+  position: relative;
+}
+.contents li.show h4,
+.contents li.show p,
+main .contents li.show img {
+  transform: none;
+  opacity: 1;
+}
+.contents li:not(:first-of-type) {
+  margin-top: 200px;
+}
+.contents li:nth-of-type(odd) .contentstext {
+  right: 0;
+}
+.contents li:nth-of-type(even) .contentstext {
+  align-items: flex-start;
+}
+.contents li:nth-of-type(odd) img {
+  transform: translate(-20px, 20px);
+}
+.contents li:nth-of-type(even) img {
+  margin-left: auto;
+  transform: translate(20px, 20px);
+}
+.contentstext {
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 40px;
+}
+.contents h4 {
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px 20px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(0, 0, 255, 0.8);
+  /* ここから触るな */
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+.contents p {
+  line-height: 1.6;
+  color: white;
+  background-color:rgba(0, 0, 255, 0.8);
+  font-size: 14px;
+  max-width: 340px;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 5px;
+  /* ここから触るな */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+.contents img {
+  width: 65%;
+  display: block;
+  border-radius: 5px;
+  /* ここから触るな */
+  opacity: 0;
+  transition: 1s 0.5s;
+}
+/* footer */
+.footer {
+  padding: 100px 0px;
+  background-color: gray;
+  color: white;
+}
+.copyright {
+text-align: center;
+margin: 0 auto;
+padding: 0;
+}
+.copyright-title {
+  font-size: 40px;
+}
+/* 部活概要 */
+.home {
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+.home-style {
+  width: 90%;
+  margin: 0 auto;
+}
+.home-style th {
+  background:blue;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border: 1px solid #cccccc;
+}
+.home-style td {
+  border: 1px solid #cccccc;
+  padding: 15px;
+}
+.history {
+  margin: 50px auto;
+}
+.history-list {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-bottom: 1px dashed gray;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.history-list dt {
+  margin-right: 30px;
+  color: black;
+}
+.history-list dd {
+  color: black;
+  font-weight: bold;
+}
+
+/* スケジュール */
+.plan-a {
+  margin: 0 10px 50px;
+  height: 240px;
+  background: white;
+}
+.season {
+  padding: 60px 0;
+  text-align: center;
+  color: white;
+}
+.season-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.spring {
+  background: pink;
+}
+.summer {
+  background: greenyellow;
+}
+.autumu {
+  background: orange;
+}
+.winter {
+  background: skyblue;
+}
+.schedule {
+  padding: 0 5px;
+}
+.plan-section {
+  max-width: 600px;
+  border: 2.5px solid #cccccc;
+  padding: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.plan-section h4 {
+  background: greenyellow;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  border-top: 5px solid green;
+  border-bottom: 5px solid green;
+}
+.plan-section p {
+  font-size: 15px;
+  padding: 20px 0;
+}
+.plan-img {
+  margin: 0 auto;
+  text-align: center;
+}
+.plan img {
+  padding: 15px;
+}
+/* よくある質問 */
+.qa-list {
+  border-bottom: 1px dashed #cccccc;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.qa-list dt {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-left: 3.5em;
+  text-indent: -3.5em;
+}
+.qa-list dd {
+  padding-left: 3.5em;
+  text-indent: -3.5em;
+}
+.qa-list dt::before ,.qa-list dd::before {
+  content: "Q";
+  background: blue;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 20px;
+  text-indent: -.1em;
+}
+.qa-list dd::before {
+  content: "A";
+  background: gray;
+}
+.mypage_list{
+  margin: 0 auto;
+}
+.page_title{
+  font-weight: bold;
+}
+
+/* スマホ記述 */
+@media screen and (max-width: 1200px){
+  .main-img {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1000px){
+  .plan {
+    display: block;
+  }
+  .plan-a {
+    margin: 0 auto;
+  }
+  .plan-section {
+    margin: 20px auto;
+  }
+  .plan-list {
+    padding: 15px;
+    background: #cccccc;
+  }
+}
+@media screen and (max-width: 768px){
+  .main-img {
+    margin: 20px 0;
+  }
+  .contents li:not(:first-of-type) {
+    margin-top: 50px;
+  }
+  .contents h4 {
+    font-size: 40px;
+  }
+  .contents p {
+    margin-top: 15px;
+    width: 300px;
+  }
+  .news-section {
+    padding: 10px 0px
+  }
+  .news-title {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 650px){
+  header {
+    padding: 30px 50px;
+    margin: 0 auto;
+  }
+  .main-title {
+    font-size: 30px;
+  }
+.section-title {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+  .section-title span {
+    font-size: 25px;
+  }
+  .main-img {
+    height: 200px;
+  }
+.contents h4 {
+    font-size: 15px;
+  }
+  .contents p {
+    margin-top: 5px;
+    font-size: 10px;
+    width: 250px;
+  }
+  .menubutton {
+      height: 55px;
+      width: 55px;
+  }
+}
+@media screen and (max-width: 450px){
+  .contents p {
+    display: none;
+  }
+}
