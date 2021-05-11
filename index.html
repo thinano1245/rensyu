@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="destyle.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script type="text/javascript">
+    function gate(){
+       // ▼ユーザの入力を求める
+       var UserInput = prompt("パスワードを入力して下さい:","");
+       // ▼入力内容をチェック
+       if( /\W+/g.test(UserInput) ) {
+          // ▼半角英数字以外の文字が存在したらエラー
+          alert("半角英数字のみを入力して下さい。");
+       }
+       // ▼キャンセルをチェック
+       else if( UserInput != null ) {
+          // ▼入力内容からファイル名を生成して移動
+          location.href = UserInput + ".html";
+       }
+    }
+    </script>
+  <title>portfolio部</title>
+</head>
+<body>
+  <header>
+    <div class="flex between center">
+      <div class="titleanimation header-left">
+        <ul class="flex center padding">
+          <li class="header-left-title"><a href="index.html"><h1>portfolio部</h1></a></li>
+        </ul>
+      </div>
+
+      <nav id="header-nav" class="header-nav">
+        <ul class="flex header-nav-list">
+          <li class="header-nav-section"><a href="index.html">ホーム</a></li>
+          <li class="header-nav-section"><a href="home.html">部活概要</a></li>
+          <li class="header-nav-section"><a href="plan.html">スケジュール</a></li>
+          <li class="header-nav-section"><a href="qa.html">よくある質問</a></li>
+          <li>  <input type="button" value="他の情報を見る" onclick="gate();"></li>
+        </ul>
+      </nav>
+    </div>
+
+    <a class="menubutton" id="menubutton">
+      <div></div>
+      <div></div>
+      <div></div>
+    </a>
+  </header>
+
+  <div class="main-section">
+    <h2 class="main-title">想作から創作へ</h2>
+    <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+      <br>
+      ここに文章が入ります。ここに文章が入ります。
+    </p>
+  </div>
+  <img class="main-img" src="annie-spratt-OWq8w3BYMFY-unsplash.jpg" alt="" width="100%">
+  <main class="main">
+    <section>
+      <h3 class="section-title">Activity<span>活動一覧</span></h3>
+    </section>
+
+    <ul class="contents padding">
+      <li class="animationtarget">
+        <a href="#">
+          <img src="brooke-cagle--uHVRvDr7pg-unsplash.jpg" alt="">
+          <div class="contentstext flex">
+            <h4>新入生説明会</h4>
+            <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+              <br>
+              ここに文章が入ります。ここに文章が入ります。
+            </p>
+          </div>
+        </a>
+      </li>
+
+      <li class="animationtarget">
+        <a href="#">
+          <img src="brooke-cagle--uHVRvDr7pg-unsplash.jpg" alt="">
+          <div class="contentstext flex">
+            <h4>七夕</h4>
+            <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+              <br>
+              ここに文章が入ります。ここに文章が入ります。
+            </p>
+          </div>
+        </a>
+      </li>
+    
+      <li class="animationtarget">
+        <a href="#">
+          <img src="brooke-cagle--uHVRvDr7pg-unsplash.jpg" alt="">
+          <div class="contentstext flex">
+            <h4>大学祭</h4>
+            <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+            <br>
+            ここに文章が入ります。ここに文章が入ります。
+            </p>
+           </div>
+        </a>
+      </li>
+    
+      <li class="animationtarget">
+        <a href="#">
+          <img src="brooke-cagle--uHVRvDr7pg-unsplash.jpg" alt="">
+          <div class="contentstext flex">
+            <h4>クリスマス会</h4>
+            <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
+            <br>
+            ここに文章が入ります。ここに文章が入ります。
+            </p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </main>
+  <footer class="footer">
+    <div>
+      <ul class="copyright">
+        <li class="copyright-title"><a href="index.html"><h4>portfolio部</h4></a></li>
+        <li><a href="index.html"><p>copyright@portfolio</p></a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
